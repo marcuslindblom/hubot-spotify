@@ -1,0 +1,26 @@
+{
+  "name": "hubot-spotify",
+  "version": "0.0.0",
+  "description": "control spotify with hubot on mac os x",
+  "main": "spotify.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aaronj1335/hubot-spotify.git"
+  },
+  "keywords": [
+    "hubot",
+    "spotify",
+    "osx"
+  ],
+  "author": "David van Leeuwen (http://www.davidvanleeuwen.nl)",
+  "license": "MIT",
+  "readmeFilename": "README.textile",
+  "gitHead": "b08bb4146f5595915959f3cbaaca162b8ad346cf",
+  "dependencies": {
+    "spotify": "~0.2.0",
+    "sh": "0.0.2"
+  }
+}
