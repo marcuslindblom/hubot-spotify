@@ -1,6 +1,6 @@
 {
   "name": "hubot-spotify",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "control spotify with hubot on mac os x",
   "main": "spotify.coffee",
   "scripts": {
