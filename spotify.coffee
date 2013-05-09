@@ -149,7 +149,7 @@ module.exports = (robot) ->
         sh('open '+options.result.second) if options.result? and options.result.second?
       when "3"
         msg.send "Are you really sure? Okay, I'll play it anyway"
-        sh('open '+options.result.third) if options.third? and options.result.third?
+        sh('open '+options.result.third) if options.result? and options.result.third?
       else
         spotify.search
           type: "track"
