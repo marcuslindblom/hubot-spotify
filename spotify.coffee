@@ -143,13 +143,13 @@ module.exports = (robot) ->
     switch query
       when "1"
         msg.send "Okay, sure why not"
-        sh('open '+options.result.first) if options.result? and options.result.first?
+        sh('osascript -e \'tell application "Spotify" to play track "' + options.result.first + '" \'') if options.result? and options.result.first?
       when "2"
         msg.send "Hah, this is my favorite song"
-        sh('open '+options.result.second) if options.result? and options.result.second?
+        sh('osascript -e \'tell application "Spotify" to play track "' + options.result.second + '" \'') if options.result? and options.result.second?
       when "3"
         msg.send "Are you really sure? Okay, I'll play it anyway"
-        sh('open '+options.result.third) if options.result? and options.result.third?
+        sh('osascript -e \'tell application "Spotify" to play track "' + options.result.third + '" \'') if options.result? and options.result.third?
       else
         spotify.search
           type: "track"
