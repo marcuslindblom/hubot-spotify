@@ -108,32 +108,32 @@ module.exports = (robot) ->
         unless err
           switch type
             when "track"
-              if data.tracks.length is 1
-                song = data.tracks[0]
+              if data.tracks.items.length is 1
+                song = data.tracks.items[0]
                 msg.send "Found it.. use #{robot.name} play 1 for “#{song.name}” by #{song.artists[0].name}"
-                options.result = {first: data.tracks[0].href}
-              else if data.tracks.length is 2
-                msg.send """Use #{robot.name} play 1 for “#{data.tracks[0].name}” by #{data.tracks[0].artists[0].name}"
-                or use #{robot.name} play 2 for “#{data.tracks[1].name}” by #{data.tracks[1].artists[0].name}
+                options.result = {first: data.tracks.items[0].uri}
+              else if data.tracks.items.length is 2
+                msg.send """Use #{robot.name} play 1 for “#{data.tracks.items[0].name}” by #{data.tracks.items[0].artists[0].name}"
+                or use #{robot.name} play 2 for “#{data.tracks.items[1].name}” by #{data.tracks.items[1].artists[0].name}
                 """
-                options.result = {first: data.tracks[0].href, second: data.tracks[1].href}
-              else if data.tracks.length > 2
-                msg.send """Use #{robot.name} play 1 for “#{data.tracks[0].name}” by #{data.tracks[0].artists[0].name}
-                or use #{robot.name} play 2 for “#{data.tracks[1].name}” by #{data.tracks[1].artists[0].name}
-                or play 3 for “#{data.tracks[2].name}” by #{data.tracks[2].artists[0].name}
+                options.result = {first: data.tracks.items[0].uri, second: data.tracks.items[1].uri}
+              else if data.tracks.items.length > 2
+                msg.send """Use #{robot.name} play 1 for “#{data.tracks.items[0].name}” by #{data.tracks.items[0].artists[0].name}
+                or use #{robot.name} play 2 for “#{data.tracks.items[1].name}” by #{data.tracks.items[1].artists[0].name}
+                or play 3 for “#{data.tracks.items[2].name}” by #{data.tracks.items[2].artists[0].name}
                 """
                 options.result =
-                  first: data.tracks[0].href
-                  second: data.tracks[1].href
-                  third: data.tracks[2].href
+                  first: data.tracks.items[0].uri
+                  second: data.tracks.items[1].uri
+                  third: data.tracks.items[2].uri
 
             # can't play a song by album or artist at this moment... maybe in the feature
             when "album"
-              album = data.albums[0]
+              album = data.albums.items[0]
               if album
                 msg.send "Found a album by the name of #{album.name}. Now, to continue this quiz... Can you name a song?"
             when "artist"
-              artist = data.artists[0]
+              artist = data.artists.items[0]
               if artist
                 msg.send "Got it. I found #{artist.name}. Now, to continue this quiz... Can you name a song?"
 
@@ -156,7 +156,7 @@ module.exports = (robot) ->
           query: msg.match[1]
           (err, data) ->
             unless err
-              song = data.tracks[0]
+              song = data.tracks.items[0]
               if song
                 sh('open '+song.href)
                 msg.send "Found it, playing: “#{song.name}” by #{song.artists[0].name} from #{song.album.name}"
